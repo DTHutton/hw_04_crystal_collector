@@ -21,5 +21,9 @@
     4. script for win/loss counter
     5. script that restarts the game upon win/loss
         a. no refreshing the page
+
+## DOM Manipulation
+    1. attach all js to appropriate elements
+
 ## Generate CSS
     1. make it fancy with bootstrap
