@@ -1,0 +1,20 @@
+.crystalOne {
+    background-image: url('../images/crystal_one.jfif');
+}
+
+.crystalTwo {
+    background-image: url('../images/crystal_two.jfif');
+}
+
+.crystalThree {
+    background-image: url('../images/crystal_three.jfif');
+}
+
+.crystalFour {
+    background-image: url('../images/crystal_four.jfif');
+}
+
+.crystalOne, .crystalTwo, .crystalThree, .crystalFour {
+    height: 225px;
+    width: 225px;
+}
