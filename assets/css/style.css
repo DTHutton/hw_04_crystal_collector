@@ -17,4 +17,10 @@
 .crystalOne, .crystalTwo, .crystalThree, .crystalFour {
     height: 225px;
     width: 225px;
+    display: inline-flex;
+}
+
+.randomButton {
+    height: 50px;
+    width: 50px;
 }
