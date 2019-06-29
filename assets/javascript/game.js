@@ -3,8 +3,9 @@ $(document).ready(() => {
     let mainNum = (min, max) => {
         return Math.floor(Math.random() * (120 - 19 + 1) + 19);
     }
-    $('.randNum').text(mainNum);
-    console.log(mainNum);
+    $('.randNum').attr('data-value', mainNum());
+    let mainValue = parseInt($('.randNum').attr('data-value'));
+    $('.randNum').text(mainValue);
 
     //sets user's base number to zero
     let baseNum = 0;
@@ -71,14 +72,53 @@ $(document).ready(() => {
 
     //-----------------------------------------------------------------------------------------
     //-----------------------------------------------------------------------------------------
+console.log(baseNum);
+console.log(mainValue);
 
     // win/loss counter
-    if (baseNum === mainNum) {
+    if (baseNum === mainValue) {
         wins++;
+        confirm('Winner winner tofu dinner!');
+
+        // //sets user's base number to zero
+        // let baseNum = 0;
+        // $('.userNum').text(baseNum);
+
+        // //sets user's base win count to zero
+        // let wins = 0;
+        // $('.winCount').text(wins);
+
+        // //sets user's base loss count to zero
+        // let losses = 0;
+        // $('.lossCount').text(losses);
+
+        // //generate main game number between 19 - 120
+        // let mainNum = (min, max) => {
+        //     return Math.floor(Math.random() * (120 - 19 + 1) + 19);
+        // }
+        // $('.randNum').text(mainNum);
     };
 
-    if (baseNum > mainNum) {
+    if (baseNum > mainValue) {
         losses++;
-    };
+        confirm('Sucks to suck!');
 
+        // //sets user's base number to zero
+        // let baseNum = 0;
+        // $('.userNum').text(baseNum);
+
+        // //sets user's base win count to zero
+        // let wins = 0;
+        // $('.winCount').text(wins);
+
+        // //sets user's base loss count to zero
+        // let losses = 0;
+        // $('.lossCount').text(losses);
+
+        // //generate main game number between 19 - 120
+        // let mainNum = (min, max) => {
+        //     return Math.floor(Math.random() * (120 - 19 + 1) + 19);
+        // }
+        // $('.randNum').text(mainNum);
+    };
 });
