@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    const defaultGameState = () => {
+    // const defaultGameState = () => {
         //generate main game number between 19 - 120
         let mainNum = (min, max) => {
             return Math.floor(Math.random() * (120 - 19 + 1) + 19);
@@ -10,7 +10,6 @@ $(document).ready(() => {
         //sets user's base number to zero
         let baseNum = 0;
         $('.userNum').text(baseNum);
-        console.log('start number ' + baseNum);
 
         //sets user's base win count to zero
         let baseWinNum = 0;
@@ -41,7 +40,9 @@ $(document).ready(() => {
         };
         $('.crystalFour').attr('data-value', crysNumFour());
 
-    }
+    // }
+
+    // defaultGameState();
 
     //-----------------------------------------------------------------------------------------
     //-----------------------------------------------------------------------------------------
@@ -51,33 +52,34 @@ $(document).ready(() => {
     //adds crystal one's random number to the user number
     $('.crystalOne').on('click', function () {
         let crystalValueOne = parseInt($('.crystalOne').attr('data-value'));
-        console.log('new number ' + (baseNum += crystalValueOne));
+        $('.userNum').text(baseNum += crystalValueOne);
 
     });
 
     //adds crystal two's randum number to the user number
     $('.crystalTwo').on('click', function () {
         let crystalValueTwo = parseInt($('.crystalTwo').attr('data-value'));
-        console.log('new number ' + (baseNum += crystalValueTwo));
+        $('.userNum').text(baseNum += crystalValueTwo);
     });
 
     //adds crystal three's randum number to the user number
     $('.crystalThree').on('click', function () {
         let crystalValueThree = parseInt($('.crystalThree').attr('data-value'));
-        console.log('new number ' + (baseNum += crystalValueThree));
+        $('.userNum').text(baseNum += crystalValueThree);
     });
 
     //adds crystal four's randum number to the user number
     $('.crystalFour').on('click', function () {
         let crystalValueFour = parseInt($('.crystalFour').attr('data-value'));
-        console.log('new number ' + (baseNum += crystalValueFour));
+        $('.userNum').text(baseNum += crystalValueFour);
     });
 
     //-----------------------------------------------------------------------------------------
     //-----------------------------------------------------------------------------------------
 
-    //win/loss counter code 
-    //TODO outline, needs refactor
+    // win/loss counter code 
+    // TODO outline, needs refactor
+    // if ()
     // let winCount = () => {
     //     baseWinNum++;
     // }
