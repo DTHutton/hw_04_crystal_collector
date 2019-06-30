@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const random = () => {
         main = Math.floor(Math.random() * (120 - 19 + 1) + 19);
-        $('.randNum').text(main);
+        $('.randNum').text('Your number to match is: ' + main);
     }
     random();
 
@@ -14,31 +14,30 @@ $(document).ready(function () {
     crystal();
 
     let wins = 0;
-    $('.winCount').text(wins);
+    $('.winCount').text('Wins: ' + wins);
 
     let losses = 0;
-    $('.lossCount').text(losses);
+    $('.lossCount').text('Losses: ' + losses);
 
     const winner = () => {
         wins++
-        $('.winCount').text(wins);
+        $('.winCount').text('You have ' + wins);
     }
 
     const loser = () => {
         losses++
-        $('.lossCount').text(losses);
+        $('.lossCount').text('Losses: ' + losses);
     }
 
     const userNum = () => {
         score = 0;
-        $('.userNum').text(score);
+        $('.userNum').text('Your total score is: ' + score);
     }
     userNum();
 
-
     //on click functions
     $('.crystalOne').on('click', function () {
-        $('.userNum').text(score += one);
+        $('.userNum').text('Your total score is: ' + (score += one));
         if (score === main) {
             alert('Winner winner tofu dinner!');
             winner();
@@ -57,7 +56,7 @@ $(document).ready(function () {
     });
 
     $('.crystalTwo').on('click', function () {
-        $('.userNum').text(score += two);
+        $('.userNum').text('Your total score is: ' + (score += two));
         if (score === main) {
             alert('Winner winner tofu dinner!');
             winner();
@@ -76,7 +75,7 @@ $(document).ready(function () {
     });
 
     $('.crystalThree').on('click', function () {
-        $('.userNum').text(score += three);
+        $('.userNum').text('Your total score is: ' + (score += three));
         if (score === main) {
             alert('Winner winner tofu dinner!');
             winner();
@@ -95,7 +94,7 @@ $(document).ready(function () {
     });
 
     $('.crystalFour').on('click', function () {
-        $('.userNum').text(score += four);
+        $('.userNum').text('Your total score is: ' + (score += four));
         if (score === main) {
             alert('Winner winner tofu dinner!');
             winner();
@@ -112,6 +111,4 @@ $(document).ready(function () {
             userNum();
         }
     });
-
-
 });

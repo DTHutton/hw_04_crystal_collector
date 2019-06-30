@@ -18,49 +18,53 @@
 
 <body>
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid pb-1">
         <div class="container">
             <h1 class="display-4 text-center">Crystal Collector</h1>
         </div>
     </div>
 
-    <main>
+    <main class="container">
+        <div class="row">
 
-        <h2>Instructions</h2>
+            <h2 class="col-12 text-center border rounded">Instructions</h2>
+            <div class="col-12 border rounded">
+                <p>You will be given a random number at the start of the game.</p>
 
-        <p>You will be given a random number at the start of the game.</p>
+                <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                    your
+                    total score.</p>
 
-        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
-            total score.</p>
+                <p>You win the game by matching your total score to the random number. You lose the game if your total
+                    score
+                    goes above the random number.</p>
 
-        <p>You win the game by matching your total score to the random number. You lose the game if your total score
-            goes above the random number.</p>
+                <p>The value of each crystal is hidden from you until you click on it.</p>
 
-        <p>The value of each crystal is hidden from you until you click on it.</p>
-
-        <p>Each time, when the game starts, the game will change the values of each crystal.</p>
-
+                <p>Each time, when the game starts, the game will change the values of each crystal.</p>
+            </div>
+        </div>
     </main>
 
-    <section class='randNum'></section>
-
-    <aside class='gameScore'>
-        <p class='winCount'></p>
-        <p class='lossCount'></p>
-    </aside>
-    <section >
-        <div class='crystalOne'></div>
-
-        <div class='crystalTwo'></div>
-
-        <div class='crystalThree'></div>
-
-        <div class='crystalFour'></div>
+    <section class="container">
+        <div class="row">
+            <p class="randNum col-3 text-center border rounded"></p>
+            <p class="userNum col-3 text-center border rounded"></p>
+            <p class="winCount col-3 text-center border rounded"></p>
+            <p class="lossCount col-3 text-center border rounded"></p>
+        </div>
     </section>
 
-    <section>
-        <div class='scoreTitle'>Your total score is:</div>
-        <div class='userNum'></div>
+    <section class="container">
+        <div class="d-inline-flex row">
+            <p class="crystalOne col-3 border rounded justify-content-around"></p>
+
+            <p class="crystalTwo col-3 border rounded justify-content-around"></p>
+
+            <p class="crystalThree col-3 border rounded justify-content-around"></p>
+
+            <p class="crystalFour col-3 border rounded justify-content-around"></p>
+        </div>
     </section>
 
 </body>
