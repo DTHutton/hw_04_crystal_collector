@@ -1,130 +1,76 @@
-$(document).ready(() => {
-
-    //generate main game number between 19 - 120
-    let mainNum = (min, max) => {
-        return Math.floor(Math.random() * (120 - 19 + 1) + 19);
+$(document).ready(function () {
+    const random = () => {
+        main = Math.floor(Math.random() * (120 - 19 + 1) + 19);
+        $('.randNum').text('Your number to match is: ' + main);
     }
-    $('.randNum').attr('data-value', mainNum());
-    let mainValue = parseInt($('.randNum').attr('data-value'));
-    $('.randNum').text(mainValue);
+    random();
 
-    //sets user's base number to zero
-    let baseNum = 0;
-    $('.userNum').attr('data-value', baseNum);
-    $('.userNum').text(baseNum);
+    const crystal = () => {
+        one = Math.floor((Math.random() * 12) + 1);
+        two = Math.floor((Math.random() * 12) + 1);
+        three = Math.floor((Math.random() * 12) + 1);
+        four = Math.floor((Math.random() * 12) + 1);
+    }
+    crystal();
 
-    //sets user's base win count to zero
     let wins = 0;
-    $('.winCount').text(wins);
+    $('.winCount').text('Wins: ' + wins);
 
-    //sets user's base loss count to zero
     let losses = 0;
-    $('.lossCount').text(losses);
-    //------------------------------------------------------------
+    $('.lossCount').text('Losses: ' + losses);
 
-    //generates random numbers for the crystals
-    const crysNumOne = () => {
-        return Math.floor((Math.random() * 12) + 1);
-    };
-    $('.crystalOne').attr('data-value', crysNumOne());
+    const winner = () => {
+        wins++
+        $('.winCount').text('You have ' + wins);
+    }
 
-    const crysNumTwo = () => {
-        return Math.floor((Math.random() * 12) + 1);
-    };
-    $('.crystalTwo').attr('data-value', crysNumTwo());
+    const loser = () => {
+        losses++
+        $('.lossCount').text('Losses: ' + losses);
+    }
 
-    const crysNumThree = () => {
-        return Math.floor((Math.random() * 12) + 1);
-    };
-    $('.crystalThree').attr('data-value', crysNumThree());
+    const userNum = () => {
+        score = 0;
+        $('.userNum').text('Your total score is: ' + score);
+    }
+    userNum();
 
-    const crysNumFour = () => {
-        return Math.floor((Math.random() * 12) + 1);
-    };
-    $('.crystalFour').attr('data-value', crysNumFour());
-    //-----------------------------------------------------------
-
-    //resets game state after win/loss
-    defautlGameState = () => {
-        //generate main game number between 19 - 120
-        let mainNum = (min, max) => {
-            return Math.floor(Math.random() * (120 - 19 + 1) + 19);
-        }
-        $('.randNum').attr('data-value', mainNum());
-        let mainValue = parseInt($('.randNum').attr('data-value'));
-        $('.randNum').text(mainValue);
-
-        //sets user's base number to zero
-        let baseNum = 0;
-        $('.userNum').attr('data-value', baseNum);
-        $('.userNum').text(baseNum);
-
-        //generates random numbers for the crystals
-        const crysNumOne = () => {
-            return Math.floor((Math.random() * 12) + 1);
-        };
-        $('.crystalOne').attr('data-value', crysNumOne());
-
-        const crysNumTwo = () => {
-            return Math.floor((Math.random() * 12) + 1);
-        };
-        $('.crystalTwo').attr('data-value', crysNumTwo());
-
-        const crysNumThree = () => {
-            return Math.floor((Math.random() * 12) + 1);
-        };
-        $('.crystalThree').attr('data-value', crysNumThree());
-
-        const crysNumFour = () => {
-            return Math.floor((Math.random() * 12) + 1);
-        };
-        $('.crystalFour').attr('data-value', crysNumFour());
-    };
-    //-----------------------------------------------------------------------------------------
-
-    //on click functions for crystals
-
-    //adds crystal one's random number to the user number
-    $('.crystalOne').on('click', function () {
-        let crystalValueOne = parseInt($('.crystalOne').attr('data-value'));
-        $('.userNum').text(baseNum += crystalValueOne);
-        if (baseNum === mainValue) {
-            wins++;
+    winLossFunction = () => {
+        if (score === main) {
             alert('Winner winner tofu dinner!');
-            defautlGameState();
-        };
+            winner();
+            random();
+            crystal();
+            userNum();
+        }
+
+        if (score > main) {
+            alert('Sucks to suck!');
+            loser();
+            random();
+            crystal();
+            userNum();
+        }
+    }
+
+    //on click functions
+    $('.crystalOne').on('click', function () {
+        $('.userNum').text('Your total score is: ' + (score += one));
+        winLossFunction();
     });
 
-    //adds crystal two's randum number to the user number
     $('.crystalTwo').on('click', function () {
-        let crystalValueTwo = parseInt($('.crystalTwo').attr('data-value'));
-        $('.userNum').text(baseNum += crystalValueTwo);
+        $('.userNum').text('Your total score is: ' + (score += two));
+        winLossFunction();
     });
 
-    //adds crystal three's randum number to the user number
     $('.crystalThree').on('click', function () {
-        let crystalValueThree = parseInt($('.crystalThree').attr('data-value'));
-        $('.userNum').text(baseNum += crystalValueThree);
+        $('.userNum').text('Your total score is: ' + (score += three));
+        winLossFunction();
     });
 
-    //adds crystal four's randum number to the user number
     $('.crystalFour').on('click', function () {
-        let crystalValueFour = parseInt($('.crystalFour').attr('data-value'));
-        $('.userNum').text(baseNum += crystalValueFour);
+        $('.userNum').text('Your total score is: ' + (score += four));
+        winLossFunction();
     });
-
-    //-----------------------------------------------------------------------------------------
-    console.log(baseNum);
-    // // win/loss counter
-    // if (baseNum === mainValue) {
-    //     wins++;
-    //     confirm('Winner winner tofu dinner!');
-    //     defautlGameState();
-    // };
-
-    // if (baseNum > mainValue) {
-    //     losses++;
-    //     confirm('Sucks to suck!');
-    //     defautlGameState();
-    // };
 });
